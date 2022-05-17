@@ -52,16 +52,61 @@ object DateUtil extends App {
     }
     datesInMonthsHelper(months, List())
   }
-  println(datesInMonths(List((1,2,2222),(1,2,2222),(1,4,2222),(1,2,2222),(1,2,2222),(1,5,2222)),List(1,2,4)))
+//  println(datesInMonths(List((1,2,2222),(1,2,2222),(1,4,2222),(1,2,2222),(1,2,2222),(1,5,2222)),List(1,2,4)))
 
   def dateToString(d: Date): String = {
     val listOfMonths = List("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
-
+    listOfMonths(d._2 - 1) + "-" + d._1 + "-" + d._3
   }
+//  println(dateToString((10,5,2002)))
 
-  def whatMonth(n: Int, yr: Int): Int = ???
+  def whatMonth(n: Int, yr: Int): Int = {
+    val numberOfDaysInMonth = List(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+    val leapYearMonth = List(31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+    @tailrec
+    def whatMonthHelper(month: List[Int], number: Int, answer: Int): Int = month match {
+      case Nil => answer
+      case head :: tail => if (number > head) whatMonthHelper(tail, number - head, answer + 1)
+      else whatMonthHelper(tail, number - head, answer)
+    }
+    if (yr%4 == 0)
+    whatMonthHelper(leapYearMonth, n, 1)
+    else whatMonthHelper(numberOfDaysInMonth, n, 1)
+  }
+//  println(whatMonth(60,2011))
 
-  def oldest(dates: List[Date]): Option[Date] = ???
+  def oldest(dates: List[Date]): Option[Date] = {
+    if (dates.isEmpty) None
+    else {
+      def oldestHelper(h: Date, source: List[Date]): Date = source match {
+        case Nil => h
+        case head :: tail =>
+          if (isOlder(h, head)) {
+            oldestHelper(head, tail)
+          }
+          else oldestHelper(h, tail)
+      }
+      Some(oldestHelper(dates.head, dates.tail))
+    }
+  }
+//  println(oldest(List((1,2,2222),(1,5,2222),(1,3,2222),(1,12,2222),(1,9,2224))))
 
-  def isReasonableDate(d: Date): Boolean = ???
+  def isReasonableDate(d: Date): Boolean = {
+    val day = d._1
+    val month = d._2
+    val year = d._3
+    if (year > 0 && month > 0 && month < 13 && day >0 && day < 32) {
+      def getDaysInMonth(month: Int, year: Int): Int = {
+        if (month == 2 && (year%400 == 0 || year%4 ==0) && year%100 != 0) 29
+        else {
+          val month_sums = List(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+          month_sums(d._2 - 1)
+        }
+      }
+      if (getDaysInMonth(month, year) < day) false
+      else true
+    }
+    else false
+  }
+//  println(isReasonableDate(29,2,2011))
 }
