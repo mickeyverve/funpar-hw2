@@ -10,7 +10,10 @@ object Newton {
   def solve(f: Double => Double, df: Double => Double, 
             guess: Double = 1.0): Option[Double] = {
 
-    ??? // replace me with real code
+    val x = guess - f(guess) / df(guess)
+    val y = f(x) + df(x) * (x - guess)
+    if (y == 0) Some(guess)
+    else solve(f, df, x)
   }
 
 }
