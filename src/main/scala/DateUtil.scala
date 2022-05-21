@@ -69,7 +69,7 @@ object DateUtil extends App {
       case head :: tail => if (number > head) whatMonthHelper(tail, number - head, answer + 1)
       else whatMonthHelper(tail, number - head, answer)
     }
-    if (yr%4 == 0)
+    if ((yr%4 == 0 || yr%400 == 0) && yr%100 != 0)
     whatMonthHelper(leapYearMonth, n, 1)
     else whatMonthHelper(numberOfDaysInMonth, n, 1)
   }
