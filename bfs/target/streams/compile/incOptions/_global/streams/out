@@ -1,0 +1,25 @@
+[0m[[0m[0mdebug[0m] [0m[0mCreated transactional ClassFileManager with tempDir = C:\Users\User\Scala\HW2\bfs\target\scala-3.1.2\classes.bak[0m
+[0m[[0m[0mdebug[0m] [0m[0mAbout to delete class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mWe backup class files:[0m
+[0m[[0m[0mdebug[0m] [0m[0mRegistering generated classes:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Mazes.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Thesaurus.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GraphBFS.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MazeSolver$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Mazes$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GraphBFS$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Thesaurus$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Maze.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MazeSolver.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Maze$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Mazes.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Thesaurus.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GraphBFS.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MazeSolver$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Mazes$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	GraphBFS$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Thesaurus$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Maze.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	MazeSolver.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Maze$.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0mRemoving the temporary directory used for backing up class files: C:\Users\User\Scala\HW2\bfs\target\scala-3.1.2\classes.bak[0m

@@ -30,5 +30,9 @@ case class Power(b: Expression, e: Expression) extends Expression {
     s"Power($bb, $ee)"
   }
 }
+  // For Log
+case class Log(l: Expression) extends Expression {
+    override def toString: String = s"Log($l)"
+}
 
 

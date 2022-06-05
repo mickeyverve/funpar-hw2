@@ -6,14 +6,17 @@ object OptionFriends extends App {
     else None
   }
 
-//  println(lookup(List(("a", "xy"), ("c", "pq"), ("a", "je")),"a"))
-
   def resolve(userIdFromLoginName: String => Option[String],
               majorFromUserId: String => Option[String],
               divisionFromMajor: String => Option[String],
               averageScoreFromDivision: String => Option[Double],
               loginName: String): Double = {
-
-    ???
+    userIdFromLoginName(loginName).flatMap(
+      userId => majorFromUserId(userId).flatMap(
+        major => divisionFromMajor(major).flatMap(
+          division => averageScoreFromDivision(division)
+          )
+        )
+      ).getOrElse(0.0)
   }
 }

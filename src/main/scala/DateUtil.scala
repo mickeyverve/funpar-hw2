@@ -9,7 +9,6 @@ object DateUtil extends App {
       else if (x._3 == y._3 && x._2 == y._2 && x._1 < y._1) true
     else false
   }
-//  println(isOlder((10,4,2002),(10,4,2002)))
 
   def numberInMonth(xs: List[Date], month: Int): Int = {
     @tailrec
@@ -20,8 +19,6 @@ object DateUtil extends App {
     }
     numberInMonthHelper(xs, 0)
   }
-//  println(numberInMonth(List((1,2,2222),(1,2,2222),(1,4,2222),(1,2,2222),(1,2,2222),(1,5,2222)),2))
-
 
   def numberInMonths(xs: List[Date], months: List[Int]): Int = {
     @tailrec
@@ -31,7 +28,6 @@ object DateUtil extends App {
     }
     numberInMonthsHelper(months, 0)
   }
-//  println(numberInMonths(List((1,2,2222),(1,2,2222),(1,4,2222),(1,2,2222),(10,2,2222),(1,5,2222)),List(1,2,3,4)))
 
   def datesInMonth(xs: List[Date], month: Int): List[Date] = {
     @tailrec
@@ -42,7 +38,6 @@ object DateUtil extends App {
     }
     datesInMonthHelper(xs, List())
   }
-//  println(datesInMonth(List((1,2,2222),(1,2,2222),(1,4,2222),(1,2,2222),(1,2,2222),(1,5,2222)),2))
 
   def datesInMonths(xs: List[Date], months: List[Int]): List[Date] = {
     @tailrec
@@ -52,13 +47,11 @@ object DateUtil extends App {
     }
     datesInMonthsHelper(months, List())
   }
-//  println(datesInMonths(List((1,2,2222),(1,2,2222),(1,4,2222),(1,2,2222),(1,2,2222),(1,5,2222)),List(1,2,4)))
 
   def dateToString(d: Date): String = {
     val listOfMonths = List("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
     listOfMonths(d._2 - 1) + "-" + d._1 + "-" + d._3
   }
-//  println(dateToString((10,5,2002)))
 
   def whatMonth(n: Int, yr: Int): Int = {
     val numberOfDaysInMonth = List(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
@@ -73,11 +66,11 @@ object DateUtil extends App {
     whatMonthHelper(leapYearMonth, n, 1)
     else whatMonthHelper(numberOfDaysInMonth, n, 1)
   }
-//  println(whatMonth(60,2011))
 
   def oldest(dates: List[Date]): Option[Date] = {
     if (dates.isEmpty) None
     else {
+      @tailrec
       def oldestHelper(h: Date, source: List[Date]): Date = source match {
         case Nil => h
         case head :: tail =>
@@ -89,7 +82,6 @@ object DateUtil extends App {
       Some(oldestHelper(dates.head, dates.tail))
     }
   }
-//  println(oldest(List((1,2,2222),(1,5,2222),(1,3,2222),(1,12,2222),(1,9,2224))))
 
   def isReasonableDate(d: Date): Boolean = {
     val day = d._1
@@ -108,5 +100,4 @@ object DateUtil extends App {
     }
     else false
   }
-//  println(isReasonableDate(29,2,2011))
 }
